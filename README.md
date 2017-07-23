@@ -7,3 +7,7 @@ freecodecamp练习心得
 56=
 注意：你声明的这个 CSS 在 pink-text类选择器的上面还是下面是无所谓的，因为 id 属性总是具有更高的优先级。
 106 107 108 没弄 主要是需要完成几个国外网站的关注
+111 jq中加入按钮弹回操作  $(document).ready(function() {
+    $("button").addClass("animated bounce");
+
+  });
