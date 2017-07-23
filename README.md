@@ -11,3 +11,9 @@ freecodecamp练习心得
     $("button").addClass("animated bounce");
 
   });
+  我们已经在后台为你引入了jQuery库和Animate.css库，这样你就可以在编辑器里直接可以使用这两个库，进而通过jQuery给button元素添加bounce回弹动画效果。
+ 117 总结 清空
+ 122 比如，如果我想把target2从left-well拷贝到right-well，我们可以这样写:
+
+$("#target2").clone().appendTo("#right-well");
+你有没有发现两个jQuery方法合在一起使用了？这就叫方法链function chaining，使用起来很方便。
