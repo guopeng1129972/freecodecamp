@@ -19,5 +19,6 @@ $("#target2").clone().appendTo("#right-well");
 你有没有发现两个jQuery方法合在一起使用了？这就叫方法链function chaining，使用起来很方便。
 127 让我们做一些更为激动人心的事情，给body添加class animated 和hinge 。
  $("body").addClass("animated hinge");
- 130 这个例子没做，有点难
+ 130 这个可以做刘老师的
+ 131 132 一样  这个例子没做，有点难
  
