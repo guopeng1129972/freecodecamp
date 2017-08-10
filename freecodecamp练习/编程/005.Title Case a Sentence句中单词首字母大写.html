@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>句中单词首字母大写</title>
+	</head>
+
+	<body>
+		Title Case a Sentence 句中单词首字母大写 确保字符串的每个单词首字母都大写，其余部分小写。 像'the'和'of'这样的连接符同理。 当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。 这是一些对你有帮助的资源:
+	</body>
+	总结：对于字符串的charAt(length-1)的方法返回的就是对应字符串所在的位置，
+	<script>
+		function titleCase(str) {
+			//将字符串转化为数组并将其小写化
+			var arr = str.toLowerCase().split(" ");
+
+			for(var i = 0; i < arr.length; i++) {
+
+				var char = arr[i].charAt(0);
+				arr[i] = arr[i].replace(char, function replace(char) {
+					return char.toUpperCase();
+				});
+			}
+			return arr.join(' ');
+
+			//return str;
+		}
+
+		titleCase("I'm a little tea pot");
+	</script>
+
+</html>

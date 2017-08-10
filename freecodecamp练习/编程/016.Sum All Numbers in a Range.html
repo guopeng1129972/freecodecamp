@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+			Sum All Numbers in a Range
+我们会传递给你一个包含两个数字的数组。返回这两个数字和它们之间所有数字的和。
+
+最小的数字并非总在最前面。
+
+如果你被难住了，记得使用 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+Math.max()
+Math.min()
+Array.reduce()
+			
+		-->
+	</body>
+	<script>
+		/* 
+		 *我的办法，已经完成大部分。主要问题在与这个循环条件的判断。
+		 * 1.这两个最小值和最大值用函数的方法主要是因为解决两个值的大小顺序的原因，这样你也可以完成。
+		 * 2.循环条件为max-min，这个为循环次数，然后等于是因为假设你要求5-10，那么你要加6次，就是这个原因。
+		 * */
+		function sumAll(arr) {
+			var arr2 = [];
+
+			var min = Math.min(arr[0], arr[1]);
+			var max = Math.max(arr[0], arr[1]);
+			for(var i = 0; i <= max - min; i++) {
+				arr2[i] = min + i;
+			}
+			var sum = arr2.reduce(function(a, b) {
+				return a + b;
+			});
+			return sum;
+		}
+	</script>
+
+</html>

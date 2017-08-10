@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+			Falsy Bouncer 过滤数组假值 （真假美猴王） 删除数组中的所有假值。 
+		在JavaScript中，假值有false、null、0、""、undefined 和 NaN。 
+		当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。
+		 这是一些对你有帮助的资源: Boolean Objects Array.filter()
+		 -->
+	</body>
+	<script>
+		/**
+		 *  这个是我的办法，并没有实现功能，总的来说，向题目中说的假值，就是boolean值中的false值；
+		 * 所以我这个判断条件根本就没有必要。
+		 * 
+		 * 还有一点要注意的是arr.filter();方法不改变原始数组，相当于给原数组加了一个方法，
+		 * */
+		function myBouncer(arr) {
+			// 请把你的代码写在这里
+			function sub(element) {
+				if(element == false || element == null || element == 0 || element == '' || element == undefined || element == NaN) {
+					return element.length;
+				}
+				return;
+			}
+			var arr2 = arr.filter(sub);
+			console.log(arr2);
+			return arr2;
+		}
+		console.log(bouncer2([7, "ate", "", false, 9]));
+		
+		
+		/**
+		 * 这个是网上大神的办法，其实也就是题中方法的实现过程，以后遇到这种问题就应该这样弄。
+		 * */
+		function bouncer2(arr) {
+			// Don't show a false ID to this bouncer.
+			return arr.filter(function(item, index, array) {
+				return Boolean(item);
+			});
+		}
+		function bouncer3(arr) {
+  // Don't show a false ID to this bouncer.
+  return arr.filter(Boolean);
+}
+	</script>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+	Diff Two Arrays
+比较两个数组，然后返回一个新数组，该数组的元素为两个给定数组中所有独有的数组元素。换言之，返回两个数组的差异。
+
+如果你被难住了，记得使用 Read-Search-Ask尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+Comparison Operators
+Array.slice()
+Array.filter()
+Array.indexOf()
+Array.concat()			
+			
+		-->
+	</body>
+	<script>
+		/*
+		 * 循环个毛 
+		 * 
+		 * */
+		function diff(arr1, arr2) {
+			var newArr = [];
+			for(var i=0;i<arr1.length;i++){
+				for (var j=0;j<arr2.length;j++) {
+					
+				}
+			}
+			return newArr;
+		}
+		/*
+		 * 标准答案
+		 * 讲道理，也可以找出三个数组都不同存在的内容
+		 * 在加啊一条判断就行了
+		 */
+		function diff2(arr1,arr2) {
+			
+			var newArr1=arr1.filter(function (item,index,array) {
+				return arr2.indexOf(item)===-1;
+			})	
+			var newArr2=arr2.filter(function (item,index,array) {
+				return arr1.indexOf(item)===-1;
+			})
+//			讲道理,这里再加个函数,就能判断更多的数组是不是也存在不同的内容了,
+			return newArr1.concat(newArr2);
+		}
+
+		diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+		console.log(diff2([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+		
+		
+	</script>
+
+</html>

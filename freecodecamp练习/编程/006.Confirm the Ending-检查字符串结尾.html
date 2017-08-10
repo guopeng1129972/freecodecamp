@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>检查字符串结尾</title>
+	</head>
+
+	<body>
+
+		Confirm the Ending 检查字符串结尾 判断一个字符串(str)是否以指定的字符串(target)结尾。
+		 如果是，返回true;如果不是，返回false。 当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。 
+		 这是一些对你有帮助的资源: String.substr()
+	</body>
+	注意：str.substr(start,[length])这个方法中，前一个代表提取的位置，第二个代表返回的数目。
+	 一开始的时候，我用数字来传值，但是这个问题并没有那么简单， 对于这种未知的数字的传值，
+	 应该采用变量来传值实现功能。 比如说这个例子中，str.length传入字符串的长度，
+	 target.length指定字符串的长度，相减所得的数值为所提取的位置，提取的长度为提取字符串的长度，
+	 然后在判断与目标字符串是否完全相等，
+	 很厉害！
+	<script>
+		
+//		方法1:使用str.substr();
+		function confirmEnding(str, target) {
+			// 请把你的代码写在这里
+			if(str.substr(str.length - target.length, str.length) === target) {
+				return true;
+			} else {
+				return false;
+			}
+			}
+		
+			//			我的错误解法
+//				console.log(str.substr(-1, 1));
+			//		if(str.substr(-1,1)==target){
+			//			return true;
+			//		}
+			//		else{
+			//			return false;
+			//		}
+//			方法二利用slice方法
+		function confirmEnding2(str, target) {
+  if ( str.slice(str.length-target.length , str.length) === target) {
+    return true;
+  }else {
+    return false;
+  }
+}
+//		方法三 利用 str.substring()方法
+		function confirmEnding(str, target) {
+  if ( str.substring(str.length-target.length , str.length) === target) {
+    return true;
+  }else {
+    return false;
+  }
+}
+
+confirmEnding("Bastian", "n");
+
+confirmEnding("Bastian", "n");
+
+		confirmEnding("He has to give me a new name", "me");
+	</script>
+
+</html>

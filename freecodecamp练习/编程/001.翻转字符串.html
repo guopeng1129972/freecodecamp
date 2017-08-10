@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>翻转字符串</title>
+	</head>
+
+	<body>
+		Reverse a String
+翻转字符串
+
+先把字符串转化成数组，再借助数组的reverse方法翻转数组顺序，最后把数组转化成字符串。
+
+你的结果必须得是一个字符串
+
+当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。
+
+这是一些对你有帮助的资源:
+
+Global String Object
+String.split()
+Array.reverse()
+Array.join()
+		<script>
+			function reverseString(str) {
+				// 请把你的代码写在这里
+				var arr1 = [];
+				var str2='';
+				for(var i = 0; i < str.length; i++) {
+					arr1[i] = str[i];
+				}
+				var arr2 = arr1.reverse();
+				str=arr2.join('');
+				
+				console.log(str);
+				return str;
+			}
+
+			reverseString("hello");
+		</script>
+	</body>
+
+</html>
+
+	

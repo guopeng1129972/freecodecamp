@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>猴子吃香蕉, 分割数组</title>
+	</head>
+
+	<body>
+
+		Chunky Monkey 猴子吃香蕉, 分割数组 （猴子吃香蕉可是掰成好几段来吃哦） 把一个数组arr按照指定的数组大小size分割成若干个数组块。 例如:chunk([1,2,3,4],2)=[[1,2],[3,4]]; chunk([1,2,3,4,5],2)=[[1,2],[3,4],[5]]; 当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。 这是一些对你有帮助的资源: Array.push() Array.slice()
+	</body>
+	
+问题：这个题断断续续的做了几天，忙别的是一个事，其实已经在大体上完成了，和目标函数也差不多，但是，你把slice写成splice是一个很大的问题；
+2.数组的slice()方法的返回值的第二个属性，我用的是size，答案是i+size，两个参数的意思一个是开始，一个是结束的位置，
+我以前理解的是一个为开始的位置，一个是需要截取的长度，我可能是记岔了。
+	<script>
+		function chunk(arr, size) {
+			// 请把你的代码写在这里
+			var arr1 = [];
+			for(var i = 0; i < arr.length; i = i + size) {
+				var arr3 = arr.slice(i,i+size);
+				arr1.push(arr3);
+				
+			}
+				console.log(arr3,i,arr1);			
+			return arr3;
+			
+		}
+
+ 
+
+		chunk(["a", "b", "c", "d","e","f"], 2);
+	</script>
+
+</html>

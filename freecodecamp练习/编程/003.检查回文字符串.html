@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>检查回文字符串</title>
+	</head>
+
+	<body>
+		
+Check for Palindromes
+检查回文字符串
+
+如果给定的字符串是回文，返回true，反之，返回false。
+
+如果一个字符串忽略标点符号、大小写和空格，正着读和反着读一模一样，那么这个字符串就是palindrome(回文)。
+
+注意你需要去掉字符串多余的标点符号和空格，然后把字符串转化成小写来验证此字符串是否为回文。
+
+函数参数的值可以为"racecar"，"RaceCar"和"race CAR"。
+	</body>
+	<!--总结：我主要是把正则那块没弄出来，思路是没有问题的-->
+	<script>
+//		网上最简洁的方法:
+function palindrome1(str) {
+  var oldstr=str.replace(/[-,.,_,/,(,),\, ,:,]/g,'').toLowerCase(); //用正则把空格和标点符号去掉 
+  var newstr=oldstr.toLowerCase().split('').reverse().join('');  //把单词字母顺序颠倒 
+  return (oldstr===newstr);  //判断是否是回文
+}
+		
+//		我的方法
+		function palindrome(str) {
+			var arr2=[];
+			str=str.replace(/[-,.,_,/,(,),\, ,:,]/g,'').toLowerCase();
+		
+			for(var i =0;i<str.length;i++){
+				arr2[i]=str[i];
+			}
+		
+		var str2=(arr2.reverse()).join("");
+		
+		 console.log(str+"------"+str2);
+			if(str2===str){
+				
+				return true;
+			}else{
+				
+				return false;
+			}
+
+}
+
+
+
+palindrome("never odd or even");
+
+	</script>
+
+</html>
+
+	

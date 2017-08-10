@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>计算一个整数的阶乘</title>
+	</head>
+
+	<body>
+		计算一个整数的阶乘
+
+如果用字母n来代表一个整数，阶乘代表着所有小于或等于n的整数的乘积。
+
+阶乘通常简写成 n!
+
+例如: 5! = 1 * 2 * 3 * 4 * 5 = 120
+
+		<script>
+		function factorialize(num) {
+			 // 请把你的代码写在这里 
+			 var sum=1;
+			for(var i=1;i<num+1;i++){
+			sum*=i;
+			}
+			return sum;
+			 }
+			console.log (factorialize(5));
+		
+		</script>
+	</body>
+
+</html>
+
+	

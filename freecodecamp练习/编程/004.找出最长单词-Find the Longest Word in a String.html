@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		Find the Longest Word in a String 找出最长单词 在句子中找出最长的单词，并返回它的长度。 函数的返回值应该是一个数字。 当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。 这是一些对你有帮助的资源: String.split() String.length
+	</body>
+	<script>
+		function findLongestWord(str) {
+			// 请把你的代码写在这里
+			var arr = str.split(" ");
+			var str2='';
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i].length > str2.length) {
+					str2 = arr[i];
+				}
+
+			}
+
+			return str2.length;
+		}
+		console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
+	</script>
+
+</html>

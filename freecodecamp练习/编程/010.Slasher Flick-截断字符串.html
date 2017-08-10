@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		Slasher Flick
+截断数组
+
+返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。
+
+当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。
+
+这是一些对你有帮助的资源:
+
+Array.slice()
+Array.splice()
+	</body>
+	注意：：这个题相对比较简单
+	一把过
+	
+	<script>
+		function slasher(arr, howMany) {
+  // 请把你的代码写在这里
+  
+  var arr2=arr.slice(0,howMany);
+  
+  arr.splice(0,arr2.length);
+  console.log(arr);
+  return arr;
+
+}
+
+slasher([1, 2, 3], 2);
+
+	</script>
+</html>
+
+
+
+参数
+searchValue
+一个字符串表示被查找的值。
+fromIndex 可选
+表示调用该方法的字符串中开始查找的位置。可以是任意整数。默认值为 0。如果 fromIndex < 0 则查找整个字符串（如同传进了 0）。如果 fromIndex >= str.length，则该方法返回 -1，除非被查找的字符串是一个空字符串，此时返回 str.length。
+返回值
+指定值的第一次出现的索引; 如果没有找到 -1。
+
+描述
+
+字符串中的字符被从左向右索引。首字符的索引（index）为 0，字符串 stringName 的最后一个字符的索引是 stringName.length - 1
