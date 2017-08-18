@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Smallest Common Multiple
+		</title>
+	</head>
+
+	<body>
+		<!--
+			Smallest Common Multiple
+找出能被两个给定参数和它们之间的连续数字整除的最小公倍数。
+
+范围是两个数字构成的数组，两个数字不一定按数字顺序排序。
+
+例如对 1 和 3 —— 找出能被 1 和 3 和它们之间所有数字整除的最小公倍数。
+
+如果你被卡住了，记得开大招 Read-Search-Ask 。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+Smallest Common Multiple
+			
+		-->
+	</body>
+	<script>
+		//		我的办法,没有做出来,但是思路的上半部分是没有问题的,我得先求出来给的值的最大值和最小值,
+		//		然后在使用
+		//		个什么办法来找出这个值,我没有想出来,也没有写出来
+		function smallestCommons1(arr) {
+			var result;
+			var max = Math.max(arr[0], arr[1]);
+			var min = Math.min(arr[0], arr[1]);
+
+			//			while(condition) {
+			//
+			//			}
+			//
+			return result;
+		}
+
+		smallestCommons1([1, 5]);
+
+		//		网上的办法,非常的清晰,阐述了所有的点,
+		//http://www.cnblogs.com/zczhangcui/p/6083993.html
+		function smallestCommons(arr) {
+			//分解质因数法，分解为若干个质数相乘
+			var arrratio = [];
+			var min = Math.min(arr[0], arr[1]);
+			var max = Math.max(arr[0], arr[1]);
+			for(var i = min + 1; i < max; i++) {
+				arr.push(i);
+			}
+			//找出小于max的所有质数
+			var arrtemp = [];
+			for(var j = 2; j <= max; j++) {
+				arrtemp.push(j);
+			}
+			var prime = arrtemp.filter(function(val) {
+				for(var k = 2; k < val; k++) {
+					if(val % k === 0) {
+						return false;
+					}
+				}
+				return true;
+			});
+			//	用这一排数分别除以从小到大的质数，如果某个数能除尽，则把那个数变为除后的数，
+			//	把这个质数放在arrratio数组里备用。直至arr里每个数都变成1。
+			//	这个方法是分解质因数法，详情见小学或初中课本。
+			while(arr.reduce(function(a, b) {
+					return a + b;
+				}) !== (max - min + 1)) {
+				for(var m = 0; m < prime.length; m++) {
+					var isratio = 0;
+					for(var n = 0; n < arr.length; n++) {
+						if(arr[n] % prime[m] === 0) {
+							isratio = 1;
+							arr[n] = arr[n] / prime[m];
+						}
+					}
+					if(isratio) {
+						arrratio[arrratio.length] = prime[m];
+					}
+				}
+			}
+			//最后把arrratio数组里的数相乘便是这一组数的最小公倍数。
+			return arrratio.reduce(function(a, b) {
+				return a * b;
+			});
+
+		}
+
+		console.log(smallestCommons([1, 13]));
+		//		第二种办法就更厉害了,具体就去下面的网站上去看看,数学算法真的对程序的实现功能有这很大的提高,
+		//http://blog.csdn.net/kimihiro_41/article/details/73740067
+		//		scm算法（最小公倍数算法） 
+		//最小公倍数=两整数的乘积÷最大公约数，即scm=sqrt（a*b）/gcd(a,b)
+		function smallestCommons(arr) {
+			function gcd(val1, val2) {
+				if(val1 % val2 === 0) {
+					return val2;
+				} else {
+					return gcd(val2, val1 % val2);
+				}
+			}
+			arr = arr.sort(function(a, b) {
+				return a - b;
+			});
+			var val = arr[0];
+			for(var i = arr[0] + 1; i <= arr[1]; i++) {
+				val *= i / gcd(val, i);
+			}
+			return val;
+		}
+
+		smallestCommons([1, 5]);
+	</script>
+
+</html>

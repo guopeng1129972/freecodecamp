@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Steamroller</title>
+	</head>
+
+	<body>
+		<!--
+			Steamroller
+对嵌套的数组进行扁平化处理。你必须考虑到不同层级的嵌套。
+
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+Array.isArray()
+			
+		-->
+	</body>
+	<script>
+		//我已经勾出了大体的结构，但是在if的判断条件成功的情况下并没有完成
+		//下面内容的书写，关键语句，result=result.concat(steamroller(arr[i]));
+		//这一句实现这个函数的关键所在，
+		function steamroller(arr) {
+			var result=[];
+			var len=arr.length;
+			for(var i=0;i<len;i++){
+				if(Array.isArray(arr[i])){
+					result=result.concat(steamroller(arr[i]));
+				}else{
+				 result.push(arr[i]);
+				}
+			}
+			return result;
+		}
+		steamroller([1, [2],[3, [[4]]]]);
+	</script>
+</html>

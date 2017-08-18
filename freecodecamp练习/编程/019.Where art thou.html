@@ -22,15 +22,29 @@ Object.hasOwnProperty()
 Object.keys()
 		-->
 	</body>
+	
+	
 	<script>
-		function where(collection, source) {
-		collection.forEach(function(){
-			
-		})
+	/**
+	 * 这个没有做出来，是在网上找的解决办法，原理感觉不是很难
+	 * */
+	
+	
+	function where(collection, source) {
 			// What's in a name?
-			collection.filter(function(){
-				
+			var keys = Object.keys(source);
+			var arr = collection.filter(function(item) {
+				for(var i = 0; i < keys.length; i++) {
+					if(!item.hasOwnProperty(keys[i]) || item[keys[i]] !== source[keys[i]]) {
+						return false;
+					} else {
+						return true;
+					}
+
+				}
+
 			})
+console.log(arr);
 			return arr;
 		}
 

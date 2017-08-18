@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Drop it</title>
+	</head>
+
+	<body>
+		<!--
+					举个例子：
+		
+		辅助和AD经常是在一起的，打野和中单在一起，上单经常一个人。
+		
+		你救了AD，辅助也经常因此获救。
+		
+		让我们来丢弃数组(arr)的元素，从左边开始，直到回调函数return true就停止。
+		
+		第二个参数，func，是一个函数。用来测试数组的第一个元素，如果返回fasle，
+		就从数组中抛出该元素(注意：此时数组已被改变)，继续测试数组的第一个元素，
+		如果返回fasle，继续抛出，直到返回true。
+		
+		最后返回数组的剩余部分，如果没有剩余，就返回一个空数组。
+		
+		如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程。编写你自己的代码。
+		
+		这是一些对你有帮助的资源:
+		
+		Arguments object
+		Array.shift()
+		Array.slice()
+					
+				-->
+	</body>
+	<script>
+		//我的办法，模仿上个例子，但是问题是他并不是要给每一项上都加上，而是当符合这个条件之后就跳出来。
+		function drop(arr, func) {
+			// Drop them elements.
+			var arr2 = arr.filter(function(item) {
+				return func(item);
+			})
+
+			return arr2;
+		}
+
+		drop([1, 2, 3], function(n) {
+			return n < 3;
+		});
+		//		我的方法2,还是不行，这俩一个意思，drop([0, 1, 0, 1], function(n) {return n === 1;});这句不行
+		function drop2(arr, func) {
+			// Drop them elements.
+			var arr2 = [];
+			for(var i = 0; i < arr.length; i++) {
+				if(func(arr[i])) {
+					arr2.push((arr[i]));
+				} else {
+					break;
+				}
+			}
+
+			return arr2;
+		}
+
+		drop2([1, 2, 3], function(n) {
+			return n < 3;
+		});
+		//网上的办法，讲道理，不是很懂
+		//if(func(arr[0]) === false)这一句中，判断的一直是数组的第一项的值
+		//判断出来之后就不做修改其他内容了。
+		function drop3(arr, func) {
+			// Drop them elements.
+			var len = arr.length;
+			for(var i = 0; i < len; i++) {
+				if(func(arr[0]) === false) {
+					arr.shift();
+				}
+			}
+			return arr;
+		}
+		drop3([0, 1, 0, 1], function(n) {
+			return n === 1;
+		});
+	</script>
+</html>

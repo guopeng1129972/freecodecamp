@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Finders Keepers</title>
+	</head>
+
+	<body>
+		<!--
+			
+Finders Keepers
+写一个 function，它遍历数组 arr，
+并返回数组中第一个满足 func 返回值的元素。举个例子，如果 arr 为 [1, 2, 3]，
+func 为 function(num) {return num === 2; }，那么 find 的返回值应为 2。
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+这是一些对你有帮助的资源:
+Array.filter()
+		-->
+	</body>
+	<script>
+//		这个相对比较简单,
+//		http://www.cnblogs.com/jeacy/p/6622669.html
+		function find(arr, func) {
+			var arr2 = arr.filter(function(item) {
+				return func(item);
+			})
+			return arr2[0];
+		}
+
+		function find2(arr, func) {
+		
+			for(var i=0;i<arr.length;i++){
+				if(func(arr[i])){return arr[i]};
+			}
+		}
+
+		find([1, 2, 3, 4], function(num) {
+			return num % 2 === 0;
+		});
+	</script>
+
+</html>

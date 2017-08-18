@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+			DNA Pairing
+DNA 链缺少配对的碱基。依据每一个碱基，为其找到配对的碱基，然后将结果作为第二个数组返回。
+
+Base pairs（碱基对） 是一对 AT 和 CG，为给定的字母匹配缺失的碱基。
+
+在每一个数组中将给定的字母作为第一个碱基返回。
+
+例如，对于输入的 GCG，相应地返回 [["G", "C"], ["C","G"],["G", "C"]]
+
+字母和与之配对的字母在一个数组内，然后所有数组再被组织起来封装进一个数组。
+
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+Array.push()
+String.split()
+Run tests (ctrl + enter)
+
+		-->
+	</body>
+	<script>
+		/*
+				 我的办法，没有问题 可以运行 
+				 * 
+				 * 
+				 * */
+		function pair(str) {
+			var arr = [];
+			for(var i = 0; i < str.length; i++) {
+				if(str[i] == 'A') {
+					arr.push(['A', 'T']);
+				} else if(str[i] == 'T') {
+					arr.push(['T', 'A']);
+				} else if(str[i] == 'C') {
+					arr.push(['C', 'G']);
+				} else if(str[i] == "G") {
+					arr.push(['G', 'C']);
+				}
+			}
+			return arr;
+		}
+		pair("GCG");
+		air("ATCGA") 应该返回[["A", "T"], ["T", "A"], ["C", "G"], ["G", "C"], ["A", "T"]]。
+		pair("TTGAG") 应该返回[["T", "A"], ["T", "A"], ["G", "C"], ["A", "T"], ["G", "C"]]。
+		pair("CTCTA") 应该返回[["C", "G"], ["T", "A"], ["C", "G"], ["T", "A"], ["A", "T"]]。
+
+		/*
+		 网上的办法
+		 需要注意是的split方法
+		 	str = str.split(''); //分离str字符串
+		 * 
+		 * */
+		function pair(str) {
+
+			var newArr = []; //创建一个新数组，用于存储DNA数组
+
+			str = str.split(''); //分离str字符串
+
+			for(var i = 0; i < str.length; i++) {
+
+				newArr.push([str[i], get(str[i])]); //使用push函数，把碱基对一个一个放入数组中，要注意的是，因为一个配对的字母要独立成一个数组，所以
+
+			} //使用push([something])，这样的格式。
+
+			function get(element) { //使用枚举法列举4种情况
+
+				switch(element) {
+
+					case 'A':
+
+						return 'T';
+
+					case 'T':
+
+						return 'A';
+
+					case 'C':
+
+						return 'G';
+
+					case 'G':
+
+						return 'C';
+
+					default:
+
+						return 0;
+
+				}
+
+			}
+
+			return newArr;
+
+		}
+
+		pair("ATCGA");
+	</script>
+
+</html>

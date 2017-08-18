@@ -45,10 +45,10 @@ Array.concat()
 		function diff2(arr1,arr2) {
 			
 			var newArr1=arr1.filter(function (item,index,array) {
-				return arr2.indexOf(item)===-1;
+				return arr2.indexOf(item)===1;
 			})	
 			var newArr2=arr2.filter(function (item,index,array) {
-				return arr1.indexOf(item)===-1;
+				return arr1.indexOf(item)===1;
 			})
 //			讲道理,这里再加个函数,就能判断更多的数组是不是也存在不同的内容了,
 			return newArr1.concat(newArr2);

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Missing letters</title>
+	</head>
+
+	<body>
+		<!--
+			Missing letters
+从传递进来的字母序列中找到缺失的字母并返回它。
+
+如果所有字母都在序列中，返回 undefined。
+
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+String.charCodeAt()
+String.fromCharCode()
+			
+		-->
+	</body>
+	<script>
+		/*
+		网上的两种办法 第一种，比较牛逼
+		 * */
+		function fearNotLetter1(str) {
+			for(var i = 0, len = str.length; i < len; i++) {
+				var cha = str.charCodeAt(i + 1) - str.charCodeAt(i);
+				if(cha > 1) {
+					return String.fromCharCode(str.charCodeAt(i) + 1);
+				}
+			}
+			return undefined;
+		}
+		fearNotLetter1("abce");
+		/*
+		 2.
+		 * */
+		function fearNotLetter2(str) {
+			for(var j = str[0].charCodeAt(), i = 0; j <= str[str.length - 1].charCodeAt(); j++, i++) {
+				if(j != str[i].charCodeAt()) {
+					return String.fromCharCode(j);
+				}
+			}
+		}
+
+		fearNotLetter2("abce");
+
+		/*
+		 我的方法有问题有些东西没有考虑到，所以输出有问题，整体都有问题，考虑时间太长了，所以不能考虑了。
+		 * */
+		function fearNotLetter3(str) {
+			if(str.length !== (str[str.length - 1] - str[0])) {
+				var max = str.charCodeAt(str.length - 1);
+				var min = str.charCodeAt(str[0]);
+				var str1 = '';
+				for(var i = min; i <= max; i++) {
+					str1 += String.fromCharCode(i);
+				}
+				console.log(str1);
+			} else {
+				return undefined;
+			}
+			return str1;
+		}
+
+		fearNotLetter("abce");
+	</script>
+
+</html>

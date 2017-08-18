@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>所有的东西都是真的！</title>
+	</head>
+
+	<body>
+		<!--
+			
+			Everything Be True
+	所有的东西都是真的！
+	
+	完善编辑器中的every函数，如果集合(collection)中的所有对象都存在对应的属性(pre)，
+	并且属性(pre)对应的值为真。函数返回ture。反之，返回false。
+	
+	记住：你只能通过中括号来访问对象的变量属性(pre)。
+	
+	提示：你可以有多种实现方式，最简洁的方式莫过于Array.prototype.every()。
+	
+	如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+		-->
+	</body>
+	<script>
+		//用我的办法下面这个例子行不通，问题是在与这个函数collection存在pre的属性，但是内容为null,
+		//所以使用hasOwnProperty属性永远返回的是真。
+		function every(collection, pre) {
+			// Is everyone being true?
+			var result = true;
+			for(var i = 0; i < collection.length; i++) {
+				if(!collection[i].hasOwnProperty(pre) && collection[i].pre === true) {
+					return result = false;
+				}
+			}
+
+			return result;
+		}
+
+		every([{
+			"name": "Pete",
+			"onBoat": true
+		}, {
+			"name": "Repeat",
+			"onBoat": true
+		}, {
+			"name": "FastFoward",
+			"onBoat": null
+		}], "onBoat");
+		//提示的方法
+		//做下来感觉element.pre这个会取到undefined，这个还不好测试，
+		//你console.log()不好打。
+		//就是说这边我的判断条件没有实现预期的效果，因为我的和例子的不一样，但是例子可以实现功能，
+		//但是问题我还没有找到。
+		//http://www.cnblogs.com/water-moon/p/6904718.html
+		function every2(collection, pre) {
+			// Is everyone being true?
+			function check(element, index, array) {
+				return(element.hasOwnProperty(pre) && element.pre);
+			}
+
+			return collection.every(check);
+		}
+
+		every2([{
+			"name": "Pete",
+			"onBoat": true
+		}, {
+			"name": "Repeat",
+			"onBoat": true
+		}, {
+			"name": "FastFoward",
+			"onBoat": null
+		}], "onBoat");
+	</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Binary Agents</title>
+	</head>
+
+	<body>
+		<!--
+			Binary Agents
+传入二进制字符串，翻译成英语句子并返回。
+
+二进制字符串是以空格分隔的。
+
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+String.charCodeAt()
+String.fromCharCode()
+		-->
+	</body>
+	<script type="text/javascript">
+		//我的方法：很简单的问题，做的时候感觉我做不下来，但是每一步每一步的做下来，其实觉得也挺简单的。
+		//这个办法还可以简化，arr2没有必要设置。
+		function binaryAgent(str) {
+			
+		var arr=str.split(' ');
+		var arr2=[];
+		var str2='';
+	
+		for(var i=0;i<arr.length;i++){
+		 arr2[i]=parseInt(arr[i],2);
+		 str2+=String.fromCharCode(arr2[i]);
+		}
+		
+//			console.log(str2);
+		return str2;
+		}
+
+		binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+		//我的方法简化版，
+function binaryAgent2(str) {
+			
+		var arr=str.split(' ');
+		var str2='';
+	
+		for(var i=0;i<arr.length;i++){
+		 str2+=String.fromCharCode(parseInt(arr[i],2));
+		}
+			console.log(str2);
+		return str2;
+		}
+
+		binaryAgent2("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+</script>
+
+</html>

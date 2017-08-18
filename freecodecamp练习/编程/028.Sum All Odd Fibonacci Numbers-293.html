@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Sum All Odd Fibonacci Numbers</title>
+	</head>
+
+	<body>
+		<!--
+			
+			Sum All Odd Fibonacci Numbers
+给一个正整数num，返回小于或等于num的斐波纳契奇数之和。
+
+斐波纳契数列中的前几个数字是 1、1、2、3、5 和 8，随后的每一个数字都是前两个数字之和。
+
+例如，sumFibs(4)应该返回 5，因为斐波纳契数列中所有小于4的奇数是 1、1、3。
+
+提示：此题不能用递归来实现斐波纳契数列。因为当num较大时，内存会溢出，推荐用数组来实现。
+
+参考文档：博客园，Issue
+
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+Remainder
+		-->
+	</body>
+	<script>
+		//		我的办法,死循环,for循环 第一行就是死循环,
+		//		for循环好像底层有坑	
+		//				这个办法不注释的话就会崩溃
+
+		//		function sumFibs1(num) {
+		//			var n = num;
+		//			var sum = 0;
+		//			var canche = [1, 1];
+		//			if(n > 2) {
+		//				for(var i = 0; i < canche.length; i++) {
+		//					canche[i + 1] = canche[i - 1] + canche[i];
+		//					if(canche[i] >= num) {
+		//						return sum;
+		//					}
+		//					if(canche[i] % 2 !== 0) {
+		//						sum += canche[i];
+		//					}
+		//				}
+		//			} else {
+		//				return n;
+		//			}
+		//		}
+		//		console.log(sumFibs1(4));
+		//	 	网上的办法,
+		//		http://www.cnblogs.com/meteoric_cry/archive/2010/11/29/1891241.html
+		//		IterMemoFib(n)这个方法就是创建一个斐波那契的第n项
+		var IterMemoFib = function() {
+			var cache = [1, 1];
+			return function(n) {
+				if(n >= cache.length) {
+					for(var i = cache.length; i < n; i++) {
+						cache[i] = cache[i - 2] + cache[i - 1];
+					}
+				}
+				return cache[n - 1];
+			}
+		}();
+		//		console.log(IterMemoFib(7));
+		
+//		网上的办法,解决了问题,
+//		问题的关键是使用了do while循环,
+//		以后有关斐波那契数列的问题的时候,
+//		多考虑do while循环
+		function sumFibs(num) {
+			var arr = [];
+			var i = 2;
+			do {
+				arr[0] = 1;
+				arr[1] = 1;
+				arr[i] = arr[i - 2] + arr[i - 1];
+				i++;
+			} while (arr[i - 1] <= num);
+
+			arr.pop();
+
+			var sum = 0;
+			for(var j = 0; j < arr.length; j++) {
+				if(arr[j] % 2 !== 0) {
+					sum += arr[j];
+				}
+			}
+			return sum;
+		}
+
+		sumFibs(19);
+	</script>
+
+</html>

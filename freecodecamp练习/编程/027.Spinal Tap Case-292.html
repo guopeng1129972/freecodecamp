@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Spinal Tap Case</title>
+	</head>
+
+	<body>
+		<!--
+			
+Spinal Tap Case
+将字符串转换为 spinal case。Spinal case 是 all-lowercase-words-joined-by-dashes 这种形式的，也就是以连字符连接所有小写单词。
+
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+RegExp
+String.replace()
+		-->
+	</body>
+	<script>
+		//		我的办法思路是这样, 两个判断的条件返回两个值,然后返回相应的值,但是这个时候,当传过来的值是一个字符串带符号这种,调用参数
+		//		传值的时候,就无法实际去实现本来想实现的功能,我觉这应该把正则表达式写成参数,写成keyvalue这种,然后调用，就不实现了，
+		//		先写下面的。
+
+		function spinalCase1(str) {
+			var arr = {
+				"-": "",
+				"[A-Z]": function() {
+					//					var str = arr.[[A - Z]];
+					var arr = str.toLowerCase().split(" ");
+
+					for(var i = 0; i < arr.length; i++) {
+
+						var char = arr[i].charAt(0);
+						arr[i] = arr[i].replace(char, function replace(char) {
+							return char.toUpperCase();
+						});
+					}
+					return arr.join(' ');
+
+				}
+			};
+			return str.replace(/[A-Z],-/g, function(item) {
+				return arr[item];
+			});
+		}
+
+		//		spinalCase1('This Is Spinal Tap');
+
+		//网上的办法，非常的简洁
+		//		1,清除下划线
+		//		2,在第一个条件下($1),就是更换成""的地方,替换成" $1",就是在条件1的下面加上空格,
+		//		3,将开头的空格替换成空;
+		//		4,将所有空格替换成"-";
+		//		5,首字母大写;
+		function spinalCase2(str) {
+			return str.replace(/_/g, '').replace(/([A-Z])/g, " $1").replace(/^\s/, "").replace(/\s+/g, '-').toLowerCase();
+		}
+		console.log(spinalCase('The_Andy_Griffit'));
+
+		//		网上的第二种办法
+//				意思差不多
+		function spinalCase3(str) {
+			function replacer(match) {
+				return ' ' + match;
+			}
+			if(str[0] <= 'z' && str[0] >= 'a') {
+				str = str.replace(/[A-Z]+/g, replacer);
+			}
+			str = str.replace(/\s/g, '-').replace(/_/g, '-').toLowerCase();
+			return str;
+		}
+		spinalCase3('This Is Spinal Tap');
+	</script>
+
+</html>

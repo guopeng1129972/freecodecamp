@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Boo who
+		</title>
+	</head>
+
+	<body>
+		<!--
+	
+Boo who
+检查一个值是否是基本布尔类型，并返回 true 或 false。
+
+基本布尔类型即 true 和 false。
+
+如果你被卡住了，记得开大招 Read-Search-Ask。尝试与他人结伴编程、编写你自己的代码。
+
+这是一些对你有帮助的资源:
+
+Boolean Objects
+-->
+	</body>
+	<script>
+		/*
+				 网上的办法简单明了，牛逼,但是有的是绝对等于，有的是==，这个就有些难受了
+				 * */
+		function boo1(bool) {
+			// What is the new fad diet for ghost developers? The Boolean.
+			return typeof bool == 'boolean';
+		}
+
+		boo1(null);
+
+		/*
+		 我的方法只有参数在1的时候不能实现功能
+		 修改了之后在fcc的浏览器下面不能运行，但是在本地的浏览器下面可以实现
+		 * */
+		function boo2(bool) {
+			// What is the new fad diet for ghost developers? The Boolean.
+			var str = typeof(bool);
+			console.log(str);
+			if(bool == true) {
+				if(typeof(bool) == Number) {
+					return false;
+				}
+				return true;
+			} else if(bool == false) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
+
+		boo2(1);
+	</script>
+
+</html>
