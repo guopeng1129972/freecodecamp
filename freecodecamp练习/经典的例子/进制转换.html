@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+		function fn(x) {
+			var num = document.getElementById('input').value;
+			console.log( typeof(num));
+	
+			document.getElementById('rseult').innerHTML = num.toString(16);
+		
+		}
+	</script>
+
+	<body>
+		<p> <input id="input" type="number" /></p>
+		<p id="rseult"></p>
+		<button onclick="fn(16)">result</button>
+
+	</body>
+
+</html>

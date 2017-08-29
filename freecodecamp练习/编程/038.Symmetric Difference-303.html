@@ -23,11 +23,30 @@ Symmetric Difference
 		-->
 	</body>
 	<script>
-		function sym(args) {
-			return args;
-		}
-
-		sym([1, 2, 3], [5, 2, 1, 4]);
+	function sym(args) {
+//首先要把传入的参数都转化到一个数组中去
+  var arr = [];
+  for(var i = 0; i < arguments.length; i++){
+    arr.push(arguments[i]);
+  }
+//使用reduce方法迭代，将不重复出现在下一个参数的数字取出来组成新数组再和后面的数组对比迭代。
+  var temp=arr.reduce(function(prev,cur,index,array){
+    var a = prev.filter(function(item){
+      return cur.indexOf(item)<0;
+    });
+    var b = cur.filter(function(item){
+      return prev.indexOf(item)<0;
+    });
+      return a.concat(b);                      
+  });
+//最后把得到的数组去重，利用fifter方法，函数出现的位置和索引相同时保留达到剔除重复数字的作用。
+  return temp.filter(function(item,index,array){
+    return array.indexOf(item)==index;
+  });
+  //或者调用外部函数去重；function unique(array)见“思路”部分
+  //return unique(temp);
+}
+sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]);
 	</script>
 
 </html>
